@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSchema - Assessments</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .header { background-color: #4CAF50; color: white; padding: 1em; text-align: center; }
+        .container { margin: 2em auto; max-width: 800px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        .form-container { margin-top: 2em; padding: 1em; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9; }
+        .form-container form { display: flex; flex-direction: column; }
+        .form-container label, .form-container input { margin: 0.5em 0; }
+        .form-container input { padding: 0.5em; font-size: 1em; }
+        .submit-button { background-color: #4CAF50; color: white; padding: 10px; border: none; cursor: pointer; }
+        .submit-button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Assessments</h1>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Assessment ID</th>
+                    <th>Course ID</th>
+                    <th>Assessment Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assessment in assessments %}
+                <tr>
+                    <td>{{ assessment[0] }}</td>
+                    <td>{{ assessment[1] }}</td>
+                    <td>{{ assessment[2] }}</td>
+                    <td>{{ assessment[3] }}</td>
+                    <td><a href="?action=delete&assessment_id={{ assessment[0] }}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="form-container">
+            <h2>Add New Assessment</h2>
+            <form method="post">
+                <label for="course_id">Course ID:</label>
+                <input type="text" id="course_id" name="course_id" required>
+                <label for="assessment_name">Assessment Name:</label>
+                <input type="text" id="assessment_name" name="assessment_name" required>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+                <button type="submit" class="submit-button">Add Assessment</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

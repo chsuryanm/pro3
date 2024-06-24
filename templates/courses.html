@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSchema - Courses</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .header { background-color: #4CAF50; color: white; padding: 1em; text-align: center; }
+        .container { margin: 2em auto; max-width: 800px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        .add-course-form { margin-top: 2em; padding: 1em; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9; }
+        .add-course-form form { display: flex; flex-direction: column; }
+        .add-course-form label, .add-course-form input { margin: 0.5em 0; }
+        .add-course-form input { padding: 0.5em; font-size: 1em; }
+        .submit-button { background-color: #4CAF50; color: white; padding: 10px; border: none; cursor: pointer; }
+        .submit-button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Courses</h1>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course[0] }}</td>
+                    <td>{{ course[1] }}</td>
+                    <td>{{ course[2] }}</td>
+                    <td>
+                        <a href="{{ url_for('manage_courses', action='delete', course_id=course[0]) }}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="add-course-form">
+            <h2>Add New Course</h2>
+            <form method="POST" action="{{ url_for('manage_courses') }}">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required>
+                <button type="submit" class="submit-button">Add Course</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

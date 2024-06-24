@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSchema - Deleted Items</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .header { background-color: #4CAF50; color: white; padding: 1em; text-align: center; }
+        .container { margin: 2em auto; max-width: 800px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        .back-link { display: block; margin-top: 1em; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Deleted Items</h1>
+    </div>
+    <div class="container">
+        <h2>Deleted Courses</h2>
+        {% if deleted_courses %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course ID</th>
+                        <th>Course Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for course in deleted_courses %}
+                        <tr>
+                            <td>{{ course[0] }}</td>
+                            <td>{{ course[1] }}</td>
+                            <td>{{ course[2] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No deleted courses found.</p>
+        {% endif %}
+
+        <h2>Deleted Students</h2>
+        {% if deleted_students %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in deleted_students %}
+                        <tr>
+                            <td>{{ student[0] }}</td>
+                            <td>{{ student[1] }}</td>
+                            <td>{{ student[2] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No deleted students found.</p>
+        {% endif %}
+
+        <h2>Deleted Instructors</h2>
+        {% if deleted_instructors %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Instructor ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for instructor in deleted_instructors %}
+                        <tr>
+                            <td>{{ instructor[0] }}</td>
+                            <td>{{ instructor[1] }}</td>
+                            <td>{{ instructor[2] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No deleted instructors found.</p>
+        {% endif %}
+
+        <h2>Deleted Assessments</h2>
+        {% if deleted_assessments %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assessment ID</th>
+                        <th>Course ID</th>
+                        <th>Assessment Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for assessment in deleted_assessments %}
+                        <tr>
+                            <td>{{ assessment[0] }}</td>
+                            <td>{{ assessment[1] }}</td>
+                            <td>{{ assessment[2] }}</td>
+                            <td>{{ assessment[3] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No deleted assessments found.</p>
+        {% endif %}
+
+        <h2>Deleted Grades</h2>
+        {% if deleted_grades %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Grade ID</th>
+                        <th>Student ID</th>
+                        <th>Assessment ID</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for grade in deleted_grades %}
+                        <tr>
+                            <td>{{ grade[0] }}</td>
+                            <td>{{ grade[1] }}</td>
+                            <td>{{ grade[2] }}</td>
+                            <td>{{ grade[3] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No deleted grades found.</p>
+        {% endif %}
+        
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
