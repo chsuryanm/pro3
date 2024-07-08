@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Database</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Educational Database</h1>
+    </div>
+
+    <div class="container">
+        <div class="section" onclick="navigateTo('students')">
+            <h2>Students</h2>
+            <button class="view-button">View Students</button>
+        </div>
+        <div class="section" onclick="navigateTo('courses')">
+            <h2>Courses</h2>
+            <button class="view-button">View Courses</button>
+        </div>
+        <div class="section" onclick="navigateTo('instructors')">
+            <h2>Instructors</h2>
+            <button class="view-button">View Instructors</button>
+        </div>
+        <div class="section" onclick="navigateTo('assignments')">
+            <h2>Assignments</h2>
+            <button class="view-button">View Assignments</button>
+        </div>
+        <div class="section" onclick="navigateTo('grades')">
+            <h2>Grades</h2>
+            <button class="view-button">View Grades</button>
+        </div>
+        <div class="section" onclick="navigateTo('deleted')">
+            <h2>Deleted Records</h2>
+            <button class="view-button">View Deleted Records</button>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h2>Summary</h2>
+        <div class="summary-item">Total Students: <strong id="totalStudents">X</strong></div>
+        <div class="summary-item">Total Courses: <strong id="totalCourses">Y</strong></div>
+        <div class="summary-item">Total Instructors: <strong id="totalInstructors">Z</strong></div>
+    </div>
+
+    <div class="activity">
+        <h2>Recent Activity / Notifications</h2>
+        <div class="activity-item">Scheduled parent-teacher conferences for next week.</div>
+        <div class="activity-item">Added new courses to the database.</div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
